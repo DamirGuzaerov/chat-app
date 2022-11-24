@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "DM Sans";
+  src: url("/src/app/assets/fonts/dm_sans/DMSans-Regular.ttf");
+  src: url("/src/app/assets/fonts/dm_sans/DMSans-Regular.ttf") format("truetype")
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +11,20 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #050505;
+}
+
+*{
+  box-sizing: border-box;
+  font-family: "DM Sans", serif;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+ul{
+  list-style: none;
+  padding: 0;
 }

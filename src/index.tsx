@@ -6,12 +6,13 @@ import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom";
-import {Login} from "./app/pages/login/login";
+import {Login} from "./app/widgets/login/login";
 import {AuthLayout} from "./app/layouts/authLayout/authLayout";
 import {MainLayout} from "./app/layouts/mainLayout/mainLayout";
 import {Home} from "./app/pages/home/home";
 import {ProtectedRoute} from "./app/components/protectedRoute/protectedRoute";
 import {ChatBoard} from "./app/components/chatBoard/chatBoard";
+import {Registration} from "./app/widgets/registration/registration";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -21,18 +22,7 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout/>,
-        children: [{
-            element: <AuthLayout/>,
-            children: [
-                {
-                    element: <Home/>,
-                    index: true
-                },
-                {
-                    path: "auth",
-                    element: <Login/>
-                }]
-        },
+        children: [
             {
                 path: "chat",
                 element:
@@ -40,7 +30,19 @@ const router = createBrowserRouter([
                         <ChatBoard/>
                     </ProtectedRoute>
             }]
-    },
+    }, {
+        element: <AuthLayout/>,
+        children: [
+            {
+                path: "/auth",
+                element: <Login/>
+            },
+            {
+                path: "/registration",
+                element: <Registration/>
+            }]
+    }
+
 ]);
 
 root.render(
